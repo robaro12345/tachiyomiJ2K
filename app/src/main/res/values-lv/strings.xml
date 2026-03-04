@@ -374,7 +374,7 @@
     <string name="every_3_days">Ik pēc 3 dienām</string>
     <plurals name="after_minutes">
         <item quantity="zero">Pēc %1$s minūtēmPēc %1$s minūtesPēc %1$s minūtēm</item>
-        <item quantity="one"/>
+        <item quantity="one">Pēc %1$s minūtēmPēc %1$s minūtesPēc %1$s minūtēm</item>
         <item quantity="other"/>
     </plurals>
     <string name="left">Pa kreisi</string>
@@ -415,7 +415,7 @@
     <string name="clear_chapter_cache">Notīrīt nodaļas kešatmiņu</string>
     <plurals name="category_plural">
         <item quantity="zero">%d kategoriju%d kategorija%d kategorijas</item>
-        <item quantity="one"/>
+        <item quantity="one">%d kategoriju%d kategorija%d kategorijas</item>
         <item quantity="other"/>
     </plurals>
     <string name="overlay">Parklājums</string>
@@ -500,7 +500,7 @@
     <string name="other">Citi</string>
     <plurals name="extension_updates_available">
         <item quantity="zero">Pieejami %d paplašinājumi atjaunināšanaiPieejams %d paplašinājums atjaunināšanaiPieejami %d paplašinājumi atjaunināšanai</item>
-        <item quantity="one"/>
+        <item quantity="one">Pieejami %d paplašinājumi atjaunināšanaiPieejams %d paplašinājums atjaunināšanaiPieejami %d paplašinājumi atjaunināšanai</item>
         <item quantity="other"/>
     </plurals>
     <string name="log_in_to_">Pieteikties %1$s</string>
@@ -508,7 +508,7 @@
     <string name="log_out">Izrakstīties</string>
     <plurals name="for_n_titles">
         <item quantity="zero">Priekš %dPriekš %dPriekš %d</item>
-        <item quantity="one"/>
+        <item quantity="one">Priekš %dPriekš %dPriekš %d</item>
         <item quantity="other"/>
     </plurals>
     <string name="theres_no_next_chapter">Nav nākošās nodaļas</string>
@@ -563,8 +563,8 @@
     <string name="error_user_agent_string_invalid">Nederīga lietotāja agent virkne</string>
     <string name="auto_download_while_reading">Automātiska lejupielāde lasīšanas laikā</string>
     <plurals name="next_unread_chapters">
-        <item quantity="zero">Nākamā nelasītā nodaļa</item>
-        <item quantity="one">Nākamā nelasītā nodaļa</item>
+        <item quantity="zero">Nākamā %d nelasītā nodaļa</item>
+        <item quantity="one">Nākamā %d nelasītā nodaļa</item>
         <item quantity="other">Nākamās %d nelasītas nodaļas</item>
     </plurals>
     <string name="download_ahead_info">Darbojas tikai ar ierakstiem bibliotēkā un tad, ja pašreizējā un nākamā nodaļa jau ir lejupielādēta</string>

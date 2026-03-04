@@ -43,6 +43,7 @@ import eu.kanade.tachiyomi.util.manga.MangaCoverMetadata
 import eu.kanade.tachiyomi.util.mapStatus
 import eu.kanade.tachiyomi.util.system.executeOnIO
 import eu.kanade.tachiyomi.util.system.launchIO
+import eu.kanade.tachiyomi.util.system.withIOContext
 import eu.kanade.tachiyomi.util.system.withUIContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -1524,14 +1525,14 @@ class LibraryPresenter(
 
         suspend fun updateRatiosAndColors() {
             val db: DatabaseHelper = Injekt.get()
-            val libraryManga = db.getFavoriteMangas().executeOnIO()
+            val libraryManga = withIOContext { db.getFavoriteMangas().executeAsBlocking() }
             libraryManga.forEach { manga ->
                 try {
-                    withUIContext { MangaCoverMetadata.setRatioAndColors(manga) }
+                    withIOContext { MangaCoverMetadata.setRatioAndColors(manga) }
                 } catch (_: Exception) {
                 }
             }
-            MangaCoverMetadata.savePrefs()
+            withIOContext { MangaCoverMetadata.savePrefs() }
         }
 
         fun updateCustoms() {

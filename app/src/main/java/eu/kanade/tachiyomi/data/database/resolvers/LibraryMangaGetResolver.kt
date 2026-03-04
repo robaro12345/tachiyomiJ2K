@@ -1,5 +1,6 @@
 package eu.kanade.tachiyomi.data.database.resolvers
 
+import android.annotation.SuppressLint
 import android.database.Cursor
 import com.pushtorefresh.storio.sqlite.operations.get.DefaultGetResolver
 import eu.kanade.tachiyomi.data.database.mappers.BaseMangaGetResolver
@@ -14,6 +15,7 @@ class LibraryMangaGetResolver :
         val INSTANCE = LibraryMangaGetResolver()
     }
 
+    @SuppressLint("Range")
     override fun mapFromCursor(cursor: Cursor): LibraryManga {
         val manga = LibraryManga()
 

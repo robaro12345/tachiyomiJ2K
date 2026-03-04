@@ -68,7 +68,12 @@ class LibraryGridHolder(
         setCards(adapter.showOutline, binding.card, binding.unreadDownloadBadge.root)
         binding.playButton.transitionName = "library chapter $bindingAdapterPosition transition"
         binding.constraintLayout.isVisible = !item.manga.isBlank()
-        binding.title.text = item.manga.title.highlightText(item.filter, color)
+
+        if (item.filter.isNotBlank()) {
+            binding.title.text = item.manga.title.highlightText(item.filter, color)
+        } else {
+            binding.title.text = item.manga.title
+        }
         binding.behindTitle.text = item.manga.title
         val mangaColor = item.manga.dominantCoverColors
         binding.coverConstraint.backgroundColor = mangaColor?.first ?: itemView.context.getResourceColor(R.attr.background)
@@ -88,12 +93,17 @@ class LibraryGridHolder(
                         ?.takeIf { it.isNotBlank() },
                 ).joinToString(", ")
             }
-        binding.subtitle.text = authorArtist.highlightText(item.filter, color)
 
-        binding.compactTitle.text =
-            binding.title.text
-                ?.toString()
-                ?.highlightText(item.filter, color)
+        if (item.filter.isNotBlank()) {
+            binding.subtitle.text = authorArtist.highlightText(item.filter, color)
+            binding.compactTitle.text =
+                binding.title.text
+                    ?.toString()
+                    ?.highlightText(item.filter, color)
+        } else {
+            binding.subtitle.text = authorArtist
+            binding.compactTitle.text = item.manga.title
+        }
 
         binding.title.post {
             val hasAuthorInFilter =

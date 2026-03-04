@@ -1,5 +1,6 @@
 package eu.kanade.tachiyomi.appwidget.components
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
@@ -20,6 +21,7 @@ import eu.kanade.tachiyomi.appwidget.ContainerModifier
 import eu.kanade.tachiyomi.appwidget.util.stringResource
 import eu.kanade.tachiyomi.ui.main.MainActivity
 
+@SuppressLint("RestrictedApi")
 @Composable
 fun LockedWidget() {
     val intent =

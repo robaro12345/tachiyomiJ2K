@@ -151,6 +151,8 @@
     <string name="collapse_all_categories">Collapse all categories</string>
     <string name="reorder_filters">Reorder filters</string>
     <string name="_unread">%d unread</string>
+    <string name="expand_all">Expand all</string>
+    <string name="collapse_all">Collapse all</string>
     <string name="search_globally">Search \"%1$s\" globally</string>
 
     <string name="read_progress">Read progress</string>
@@ -812,7 +814,7 @@
     <string name="backup_restore_invalid_uri">Error: empty URI</string>
     <string name="creating_backup">Creating backup</string>
     <string name="backup_info">Automatic backups are highly recommended. You should keep copies in other places as well.</string>
-    <string name="what_should_backup">What do you want to backup?</string>
+    <string name="what_should_backup">What do you want to back up?</string>
     <string name="restoring_backup">Restoring backup</string>
     <string name="restore_duration">%02d min, %02d sec</string>
     <string name="restore_miui_warning">Backup/restore may not function properly if MIUI Optimization is disabled.</string>
@@ -1204,4 +1206,13 @@
     <string name="view_chapters">View chapters</string>
     <string name="warning">Warning</string>
     <string name="wifi">Wi-Fi</string>
+
+    <!-- Universal VPN Auto-Trigger -->
+    <string name="pref_category_auto_vpn">Auto VPN Trigger</string>
+    <string name="pref_auto_vpn_enabled">Auto-open VPN on slow network</string>
+    <string name="pref_auto_vpn_summary">Automatically open your VPN app when network is slow</string>
+    <string name="pref_select_vpn_app">Select VPN app</string>
+    <string name="pref_vpn_latency_threshold">Latency threshold</string>
+    <string name="pref_test_vpn_app">Test VPN app</string>
+    <string name="pref_test_vpn_app_summary">Open the selected VPN app</string>
 </resources>

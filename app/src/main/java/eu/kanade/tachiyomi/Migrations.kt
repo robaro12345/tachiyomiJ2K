@@ -261,6 +261,12 @@ object Migrations {
                     remove("trusted_signatures")
                 }
             }
+            val vpnLatency = prefs.all[PreferenceKeys.vpnLatencyThreshold]
+            if (vpnLatency is String) {
+                prefs.edit {
+                    putInt(PreferenceKeys.vpnLatencyThreshold, vpnLatency.toIntOrNull() ?: 5000)
+                }
+            }
 
             return true
         }

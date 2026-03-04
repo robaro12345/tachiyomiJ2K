@@ -1,5 +1,6 @@
 package eu.kanade.tachiyomi.ui.base
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -26,6 +27,8 @@ class MiniSearchView
         attrs: AttributeSet? = null,
     ) : SearchView(context, attrs) {
         private var scope: CoroutineScope? = null
+
+        @SuppressLint("RestrictedApi")
         private val searchTextView: SearchAutoComplete? = findViewById(androidx.appcompat.R.id.search_src_text)
 
         init {

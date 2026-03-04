@@ -173,7 +173,7 @@ fun <T> ListMatPreference.bindTo(preference: FlowPreference<T>) {
 
 @Deprecated(
     "Do not bind tri-states prefs with a single preference",
-    ReplaceWith("bindTo(preference, excludePreference = )"),
+    ReplaceWith("bindTo(preference, excludePreference)"),
     DeprecationLevel.ERROR,
 )
 fun <T> TriStateListPreference.bindTo(preference: FlowPreference<T>) {

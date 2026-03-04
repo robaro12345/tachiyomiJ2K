@@ -230,7 +230,7 @@
     <string name="obsolete">Zastarjelo</string>
     <string name="obsolete_extension_message">Овај додатак није више доступан.</string>
     <plurals name="extension_updates_available">
-        <item quantity="one">Доступна је нова верзија екстензије</item>
+        <item quantity="one">%d Доступна је нова верзија екстензије</item>
         <item quantity="few">%d нове верзије екстензије су доступне</item>
         <item quantity="other">%d нових верзија екстензија су доступна</item>
     </plurals>
@@ -912,7 +912,7 @@
     <string name="mark_all_as_read">Označi sve kao pročitano</string>
     <string name="mark_all_as_unread">Označi sve kao nepročitano</string>
     <plurals name="extensions_updated_plural">
-        <item quantity="one">Екстензија ажурирана</item>
+        <item quantity="one">%d Екстензија ажурирана</item>
         <item quantity="few">%d екстензије су ажуриране</item>
         <item quantity="other">%d екстензија је ажурирано</item>
     </plurals>
@@ -998,7 +998,7 @@
     <string name="downloaded_chapters">Preuzeta poglavlja</string>
     <string name="tap_zones">Начин навигације</string>
     <plurals name="next_unread_chapters">
-        <item quantity="one">Следеће непрочитано поглавље</item>
+        <item quantity="one">Следеће %d непрочитано поглавље</item>
         <item quantity="few">Следећа %d непрочитана поглавља</item>
         <item quantity="other">Следећих %d непрочитаних поглавља</item>
     </plurals>

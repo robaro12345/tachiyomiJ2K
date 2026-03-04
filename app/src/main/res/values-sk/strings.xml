@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="categories">Kategórie</string>
     <string name="manga">Manga</string>
     <string name="chapters">Kapitoly</string>
@@ -286,7 +286,7 @@
     <string name="date_fetched">Dátum načítaný</string>
     <string name="by_chapter_number">Podľa čísla kapitoly</string>
     <string name="new_version_available">Dostupná nová aktualizácia!</string>
-    <plurals name="extension_updates_available">
+    <plurals name="extension_updates_available" tools:ignore="MissingQuantity">
         <item quantity="one">Je dostupná aktualizácia pre rozšírenie</item>
         <item quantity="few">Je dostupných %d aktualizácii pre rozšírenia</item>
         <item quantity="other">Sú dostupné %d aktualizácii pre rozšírenia</item>
@@ -355,7 +355,7 @@
     <string name="last_read_chapter_">Naposledy prečítaná kapitola %1$s</string>
     <string name="cover_saved">Obal uložený</string>
     <string name="no_chapters_error">Nenašli sa žiadne kapitoly</string>
-    <plurals name="category_plural">
+    <plurals name="category_plural" tools:ignore="MissingQuantity">
         <item quantity="one">%d kategória</item>
         <item quantity="few">%d kategórie</item>
         <item quantity="other">%d kategórií</item>
@@ -405,7 +405,7 @@
     <string name="tracking_status">Stav sledovania</string>
     <string name="ungrouped">Nezoskupené</string>
     <string name="invalid_backup_file">Neplatný záložný súbor</string>
-    <plurals name="restore_completed_message">
+    <plurals name="restore_completed_message" tools:ignore="MissingQuantity">
         <item quantity="one">Dokončené za %1$s s %2$s chybou</item>
         <item quantity="few">Dokončené za %1$s s %2$s chybami</item>
         <item quantity="other">Dokončené za %1$s s %2$s chybami</item>
@@ -433,7 +433,7 @@
     <string name="clear_database_source_item_count">V databáze je manga %1$d, ktorá sa nenachádza v knižnici</string>
     <string name="download_ahead">Stiahnuť dopredu</string>
     <string name="download_notifier_split_failed">Stiahnutý obrázok sa nepodarilo rozdeliť</string>
-    <plurals name="next_unread_chapters">
+    <plurals name="next_unread_chapters" tools:ignore="MissingQuantity">
         <item quantity="one">Ďalšia neprečítaná kapitola</item>
         <item quantity="few">Ďalšie %d neprečítané kapitoly</item>
         <item quantity="other">Ďalších %d neprečítaných kapitol</item>
@@ -492,7 +492,7 @@
     <string name="help_translate">Pomôžte s prekladom</string>
     <string name="publishing_finished">Publikovanie ukončené</string>
     <string name="cancelled">Zrušené</string>
-    <plurals name="chapters_plural">
+    <plurals name="chapters_plural" tools:ignore="MissingQuantity">
         <item quantity="one">%1$s kapitola</item>
         <item quantity="few">%1$s kapitoly</item>
         <item quantity="other">%1$s kapitol</item>
@@ -501,12 +501,12 @@
     <string name="on_hiatus">Prestávka</string>
     <string name="chapters_removed">Kapitoly odstránené.</string>
     <string name="no_pages_found">Nenašli sa žiadne stránky</string>
-    <plurals name="remove_n_chapters">
+    <plurals name="remove_n_chapters" tools:ignore="MissingQuantity">
         <item quantity="one">Odstrániť %1$d stiahnutú kapitolu\?</item>
         <item quantity="few">Odstrániť %1$d stiahnute kapitoly\?</item>
         <item quantity="other">Odstrániť %1$d stiahnutých kapitol\?</item>
     </plurals>
-    <plurals name="pages_left">
+    <plurals name="pages_left" tools:ignore="MissingQuantity">
         <item quantity="one">Zostáva %1$d strana</item>
         <item quantity="few">Zostávú %1$d strany</item>
         <item quantity="other">Zostáva %1$d stran</item>
@@ -532,13 +532,13 @@
     <string name="pref_hide_threshold">Citlivosť pre skrytie ponuky pri posúvaní</string>
     <string name="crash_log_saved">Uložené logy o zlyhaní</string>
     <string name="restore_miui_warning">Zálohovanie/obnovenie nemusí fungovať správne, ak je vypnutá optimalizácia MIUI.</string>
-    <plurals name="after_minutes">
+    <plurals name="after_minutes" tools:ignore="MissingQuantity">
         <item quantity="one">Po %1$s minúte</item>
         <item quantity="few">Po %1$s minútach</item>
         <item quantity="other">Po %1$s minútach</item>
     </plurals>
     <string name="user_agent_string">Predvolený reťazec pre User-Agent</string>
-    <plurals name="for_n_titles">
+    <plurals name="for_n_titles" tools:ignore="MissingQuantity">
         <item quantity="one">Pre %d titul</item>
         <item quantity="few">Pre %d tituly</item>
         <item quantity="other">Pre %d titulov</item>
@@ -610,7 +610,7 @@
     <string name="statistics">Štatistiky</string>
     <string name="appwidget_unavailable_locked">Widget nie je k dispozícii, keď je povolený zámok aplikácie</string>
     <string name="updates_last_update_info">Posledná aktualizácia knižnice: %s</string>
-    <plurals name="missing_chapters_warning">
+    <plurals name="missing_chapters_warning" tools:ignore="MissingQuantity">
         <item quantity="one">Preskočenie %d kapitoly, buď zdroj chýba, alebo bol odfiltrovaný</item>
         <item quantity="few">Preskočenie %d kapitol, buď zdroj chýba, alebo bol odfiltrovaný</item>
         <item quantity="other">Zložky %d kapitoly, buď zdroj chýba, alebo boli filtrované</item>

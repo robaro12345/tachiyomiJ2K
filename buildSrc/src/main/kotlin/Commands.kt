@@ -7,25 +7,33 @@ import java.util.Date
 // Git is needed in your system PATH for these commands to work.
 // If it's not installed, you can return a random value as a workaround
 fun Project.getCommitCount(): String {
-    return runCommand("git rev-list --count HEAD")
-    // return "1"
+    return try {
+        runCommand("git", "rev-list", "--count", "HEAD")
+    } catch (e: Exception) {
+        "1"
+    }
 }
 
 fun Project.getBetaCount(): String {
-    val betaTags = runCommand("git tag -l --sort=refname v${AndroidVersions.versionName}-b*")
-    return String.format("%02d", if (betaTags.isNotEmpty()) {
-        val betaTag = betaTags.split("\n").last().substringAfter("-b").toIntOrNull()
-        ((betaTag ?: 0) + 1)
-    } else {
-        1
-    })
-    // return "1"
+    return try {
+        val betaTags = runCommand("git", "tag", "-l", "--sort=refname", "v${AndroidVersions.versionName}-b*")
+        String.format("%02d", if (betaTags.isNotEmpty()) {
+            val betaTag = betaTags.split("\n").last().substringAfter("-b").toIntOrNull()
+            ((betaTag ?: 0) + 1)
+        } else {
+            1
+        })
+    } catch (e: Exception) {
+        "01"
+    }
 }
 
-
 fun Project.getGitSha(): String {
-    return runCommand("git rev-parse --short HEAD")
-    // return "1"
+    return try {
+        runCommand("git", "rev-parse", "--short", "HEAD")
+    } catch (e: Exception) {
+        "unknown"
+    }
 }
 
 fun Project.getBuildTime(): String {
@@ -34,11 +42,12 @@ fun Project.getBuildTime(): String {
     return df.format(Date())
 }
 
-fun Project.runCommand(command: String): String {
-    val byteOut = ByteArrayOutputStream()
-    project.exec {
-        commandLine = command.split(" ")
-        standardOutput = byteOut
-    }
-    return String(byteOut.toByteArray()).trim()
+private fun runCommand(vararg command: String): String {
+    val process = ProcessBuilder(*command)
+        .redirectOutput(ProcessBuilder.Redirect.PIPE)
+        .redirectError(ProcessBuilder.Redirect.PIPE)
+        .start()
+
+    process.waitFor()
+    return process.inputStream.bufferedReader().readText().trim()
 }

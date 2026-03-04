@@ -71,7 +71,10 @@ open class App :
 
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
 
-        MangaCoverMetadata.load()
+        ProcessLifecycleOwner.get().lifecycleScope.launchIO {
+            MangaCoverMetadata.load()
+        }
+
         preferences
             .nightMode()
             .asImmediateFlow { AppCompatDelegate.setDefaultNightMode(it) }

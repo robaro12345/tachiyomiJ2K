@@ -303,7 +303,7 @@ class MangaHeaderHolder(
         }
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "StringFormatInvalid")
     fun bind(
         item: MangaHeaderItem,
         manga: Manga,

@@ -236,4 +236,8 @@ object PreferenceKeys {
     const val hideChapterTitles = "hide_chapter_titles"
 
     const val chaptersDescAsDefault = "chapters_desc_as_default"
+
+    const val autoVpnEnabled = "auto_vpn_enabled"
+    const val vpnLatencyThreshold = "vpn_latency_threshold"
+    const val vpnPackageName = "vpn_package_name"
 }

@@ -512,4 +512,10 @@ class PreferencesHelper(
     fun coverColors() = flowPrefs.getStringSet(Keys.coverColors, emptySet())
 
     fun useStaggeredGrid() = flowPrefs.getBoolean("use_staggered_grid", false)
+
+    fun autoVpnEnabled() = flowPrefs.getBoolean(Keys.autoVpnEnabled, false)
+
+    fun vpnLatencyThreshold() = flowPrefs.getInt(Keys.vpnLatencyThreshold, 5000)
+
+    fun vpnPackageName() = flowPrefs.getString(Keys.vpnPackageName, "")
 }

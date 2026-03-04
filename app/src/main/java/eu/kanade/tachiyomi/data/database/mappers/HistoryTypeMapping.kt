@@ -1,5 +1,6 @@
 package eu.kanade.tachiyomi.data.database.mappers
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.database.Cursor
 import com.pushtorefresh.storio.sqlite.SQLiteTypeMapping
@@ -49,6 +50,7 @@ open class HistoryPutResolver : DefaultPutResolver<History>() {
 }
 
 class HistoryGetResolver : DefaultGetResolver<History>() {
+    @SuppressLint("Range")
     override fun mapFromCursor(cursor: Cursor): History =
         HistoryImpl().apply {
             id = cursor.getLong(cursor.getColumnIndex(COL_ID))

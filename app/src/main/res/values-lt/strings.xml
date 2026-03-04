@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="default_category">Numatyta kategorija</string>
     <string name="no_new_updates_available">Naujų atnaujinimų nėra</string>
     <string name="searching_for_updates">Ieškoma naujinimų…</string>
@@ -21,7 +21,7 @@
     <string name="clear_history_confirmation">Ar tu tuo tikras\? Visa istorija bus prarasta.</string>
     <string name="sources">Šaltiniai</string>
     <string name="untrusted_extension">Nepatikimas plėtinys</string>
-    <plurals name="extension_updates_available">
+    <plurals name="extension_updates_available" tools:ignore="MissingQuantity">
         <item quantity="one">%d plėtinio atnaujinimas pasiekiamas</item>
         <item quantity="few">%d plėtinių atnaujinimai pasiekiami</item>
         <item quantity="other">%d plėtinių atnaujinimai pasiekiami</item>
@@ -90,7 +90,7 @@
     <string name="unpin">Atsegti</string>
     <string name="categories">Kategorijos</string>
     <string name="edit_categories">Redaguoti kategorijas</string>
-    <plurals name="category_plural">
+    <plurals name="category_plural" tools:ignore="MissingQuantity">
         <item quantity="one">%d kategorija</item>
         <item quantity="few">%d kategorijos</item>
         <item quantity="other">%d kategorijos</item>
@@ -100,7 +100,7 @@
     <string name="local">Vietinis</string>
     <string name="total_chapters">Skyrių skaičius</string>
     <string name="download_queue_size_warning">Įspėjimas: dėl didelių masinių atsisiuntimų šaltiniai gali tapti lėtesni ir (arba) jie blokuoti \"Tachiyomi\". Bakstelėkite , jei norite sužinoti daugiau.</string>
-    <plurals name="for_n_titles">
+    <plurals name="for_n_titles" tools:ignore="MissingQuantity">
         <item quantity="one">Dėl %d pavadinimo</item>
         <item quantity="few">Dėl %d pavadinimų</item>
         <item quantity="other">Dėl %d pavadinimo</item>
@@ -151,7 +151,7 @@
     <string name="restore_miui_warning">Atsarginės kopijos kūrimas / atkūrimas gali veikti netinkamai, jei \"MIUI Optimization\" yra išjungtas.</string>
     <string name="progress">Progresas</string>
     <string name="complete">Baigtas</string>
-    <plurals name="restore_completed_message">
+    <plurals name="restore_completed_message" tools:ignore="MissingQuantity">
         <item quantity="one">Atlikta %1$s su %2$s klaida</item>
         <item quantity="few">Atlikta %1$s su %2$s klaidomis</item>
         <item quantity="other">Atlikta %1$s su %2$s klaidomis</item>
@@ -227,7 +227,7 @@
     <string name="every_2_days">Kas 2 dienas</string>
     <string name="every_3_days">Kas 3 dienas</string>
     <string name="weekly">Kas savaitę</string>
-    <plurals name="after_minutes">
+    <plurals name="after_minutes" tools:ignore="MissingQuantity">
         <item quantity="one">Po %1$s minutės</item>
         <item quantity="few">Po %1$s minučių</item>
         <item quantity="other">Po %1$s minučių</item>
@@ -339,9 +339,10 @@
 \nAr vis dar norite tęsti\?</string>
     <string name="source_not_installed_">Šaltinis neįdiegtas: %1$s</string>
     <string name="no_description">Nėra aprašymo</string>
-    <plurals name="next_unread_chapters">
-        <item quantity="one">Kitas neskaitytas skyrius</item>
+    <plurals name="next_unread_chapters" tools:ignore="MissingQuantity">
+        <item quantity="one">Kitas %d neskaitytas skyrius</item>
         <item quantity="few">Kiti %d neskaityti skyriai</item>
+        <item quantity="many">Kiti %d neskaityti skyriai</item>
         <item quantity="other">Kiti %d neskaitytų skyrių</item>
     </plurals>
     <string name="tracking">Sekimas</string>
@@ -494,9 +495,10 @@
     <string name="read_duration">Skaitymo trukmė</string>
     <string name="skipped_reason_not_always_update">Praleista, nes serijai nereikia atnaujinimų</string>
     <string name="error_user_agent_string_invalid">Netinkama naudotojo agento eilutė</string>
-    <plurals name="chapters_plural">
+    <plurals name="chapters_plural" tools:ignore="MissingQuantity">
         <item quantity="one">%1$s skyrius</item>
         <item quantity="few">%1$s skyriai</item>
+        <item quantity="many">%1$s skyriai</item>
         <item quantity="other">%1$s skyriai</item>
     </plurals>
     <string name="popular">Populiaru</string>
@@ -505,9 +507,10 @@
     <string name="appwidget_updates_description">Peržiūrėkite neseniai atnaujintus bibliotekos įrašus</string>
     <string name="appwidget_unavailable_locked">Valdiklis nepasiekiamas, kai įjungtas programėlės užraktas</string>
     <string name="updates_last_update_info">Biblioteka paskutinį kartą atnaujinta: %s</string>
-    <plurals name="missing_chapters_warning">
+    <plurals name="missing_chapters_warning" tools:ignore="MissingQuantity">
         <item quantity="one">Praleidžiamas %d skyrius, arba jo nėra šaltinyje, arba jis buvo nepasirinktas</item>
         <item quantity="few">Praleidžiami %d skyriai, arba jų nėra šaltinyje, arba jie buvo nepasirinkti</item>
+        <item quantity="many">Praleidžiami %d skyriai, arba jų nėra šaltinyje, arba jie buvo nepasirinkti</item>
         <item quantity="other">Praleidžiamia %d skyrių, arba jų nėra šaltinyje, arba jie buvo nepasirinkti</item>
     </plurals>
     <string name="decode_image_error">Nepavyko pakrauti paveikslėlio</string>

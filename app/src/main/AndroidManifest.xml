@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-sdk tools:overrideLibrary="com.google.android.gms.oss.licenses, rikka.shizuku.api" />
+
     <!-- Internet -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -31,7 +33,8 @@
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.READ_APP_SPECIFIC_LOCALES" />
+    <uses-permission android:name="android.permission.READ_APP_SPECIFIC_LOCALES"
+        tools:ignore="ProtectedPermissions" />
 
     <application
         android:name=".App"
@@ -49,7 +52,8 @@
         android:largeHeap="true"
         android:localeConfig="@xml/locales_config"
         android:theme="@style/Theme.Tachiyomi"
-        android:networkSecurityConfig="@xml/network_security_config">
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:targetApi="33">
         <activity
             android:name=".ui.main.MainActivity"
             android:windowSoftInputMode="adjustNothing"
@@ -97,32 +101,28 @@
         <activity android:name=".ui.reader.ReaderActivity"
             android:theme="@style/Theme.Splash"
             android:exported="true">
-            <intent-filter>
+            <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data
-                    android:host="reader.kireicake.com"
-                    android:pathPattern="/read/..*/..*/..*/..*"
-                    android:scheme="https" />
+                <data android:scheme="https" />
+                <data android:host="reader.kireicake.com" />
+                <data android:pathPattern="/read/..*/..*/..*/..*" />
 
-                <data
-                    android:host="mangaplus.shueisha.co.jp"
-                    android:pathPattern="/viewer/..*"
-                    android:scheme="https" />
+                <data android:scheme="https" />
+                <data android:host="mangaplus.shueisha.co.jp" />
+                <data android:pathPattern="/viewer/..*" />
 
-                <data
-                    android:host="cubari.moe"
-                    android:pathPattern="/read/imgur/..*"
-                    android:scheme="https" />
+                <data android:scheme="https" />
+                <data android:host="cubari.moe" />
+                <data android:pathPattern="/read/imgur/..*" />
 
                 <!-- Only link to a chapter if the gist contains a chapter number -->
-                <data
-                    android:host="cubari.moe"
-                    android:pathPattern="/read/gist/..*/..*"
-                    android:scheme="https" />
+                <data android:scheme="https" />
+                <data android:host="cubari.moe" />
+                <data android:pathPattern="/read/gist/..*/..*" />
             </intent-filter>
 
             <intent-filter>

@@ -558,7 +558,7 @@
     <string name="allow_deleting_bookmarked_chapters">اجازه‌ی پاک‌کردن قسمت‌های نشانک‌گذاری شده را بده</string>
     <string name="skip_dupe_chapters">چپتر های تکراری را رد کن</string>
     <plurals name="next_unread_chapters">
-        <item quantity="one">قسمت خوانده نشده بعدی</item>
+        <item quantity="one">%dقسمت خوانده نشده بعدی</item>
         <item quantity="other">%d قسمت خوانده نشده بعدی</item>
     </plurals>
     <string name="empty_backup_error">هیچ داده کتابخانه ای نیست که پشتیبانی شود</string>
@@ -569,7 +569,7 @@
     <string name="download_ahead_info">اگر قسمت فعلی و بعدی دانلود شده باشند، تنها برای ورودی‌های کتابخانه کار می‌کند</string>
     <string name="statistics">آمار</string>
     <plurals name="missing_chapters_warning">
-        <item quantity="one">1 قسمت جا افتاده است</item>
+        <item quantity="one">%d1 قسمت جا افتاده است</item>
         <item quantity="other">%d قسمت جا افتاده است</item>
     </plurals>
     <string name="gray_background">خاکستری</string>
@@ -665,7 +665,7 @@
     <string name="reset_all_chapters_for_this_">همه چپتر ها را برای این %1$s باز نشانی کن</string>
     <string name="no_chapters_found_for_migration">هیچ چپتری یافت نشد، این مجموعه را نمیتوان برای انتقال مرجع استفاده کرد</string>
     <plurals name="extensions_updated_plural">
-        <item quantity="one">افرونه به روز رسانی شد</item>
+        <item quantity="one">%dافرونه به روز رسانی شد</item>
         <item quantity="other">%d افزونه به روز رسانی شد</item>
     </plurals>
     <string name="migrate_">انتقال منبع %1$s</string>

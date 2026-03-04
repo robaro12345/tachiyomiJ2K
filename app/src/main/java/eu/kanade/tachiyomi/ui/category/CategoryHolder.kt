@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.View
-import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat
@@ -126,8 +125,15 @@ class CategoryHolder(
     }
 
     private fun showKeyboard() {
-        val inputMethodManager = itemView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.showSoftInput(binding.editText, WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+        val imm =
+            itemView.context
+                .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+        binding.editText.requestFocus()
+
+        binding.editText.post {
+            imm.showSoftInput(binding.editText, InputMethodManager.SHOW_IMPLICIT)
+        }
     }
 
     private fun hideKeyboard() {

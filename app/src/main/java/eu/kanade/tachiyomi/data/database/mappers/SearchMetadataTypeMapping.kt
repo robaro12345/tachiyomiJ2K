@@ -1,5 +1,6 @@
 package eu.kanade.tachiyomi.data.database.mappers
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.database.Cursor
 import com.pushtorefresh.storio.sqlite.SQLiteTypeMapping
@@ -50,6 +51,7 @@ class SearchMetadataPutResolver : DefaultPutResolver<SearchMetadata>() {
 }
 
 class SearchMetadataGetResolver : DefaultGetResolver<SearchMetadata>() {
+    @SuppressLint("Range")
     override fun mapFromCursor(cursor: Cursor): SearchMetadata =
         SearchMetadata(
             mangaId = cursor.getLong(cursor.getColumnIndex(COL_MANGA_ID)),

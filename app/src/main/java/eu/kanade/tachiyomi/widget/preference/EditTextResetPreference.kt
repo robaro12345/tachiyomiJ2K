@@ -25,6 +25,8 @@ class EditTextResetPreference
     ) : MatPreference(activity, context, attrs) {
         private var defValue: String = ""
         var dialogSummary: CharSequence? = null
+        var neutralButtonText: Int = R.string.reset
+        var onNeutralButtonClick: ((EditText) -> Unit)? = null
 
         override fun onSetInitialValue(defaultValue: Any?) {
             super.onSetInitialValue(defaultValue)
@@ -63,18 +65,31 @@ class EditTextResetPreference
                 )
                 val inputMethodManager: InputMethodManager =
                     context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                inputMethodManager.showSoftInput(textView, WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+                inputMethodManager.showSoftInput(textView, InputMethodManager.SHOW_IMPLICIT)
                 // Place cursor at the end
                 textView.setSelection(textView.text.length)
                 this.setView(view)
-                this.setNeutralButton(R.string.reset) { _, _ ->
-                    if (callChangeListener(defValue)) {
-                        if (preferenceDataStore != null) {
-                            preferenceDataStore?.putString(key, null)
-                        } else {
-                            sharedPreferences?.edit { remove(key) }
+                this.setNeutralButton(neutralButtonText) { _, _ ->
+                    if (onNeutralButtonClick != null) {
+                        onNeutralButtonClick?.invoke(textView)
+                        val newValue = textView.text.toString()
+                        if (callChangeListener(newValue)) {
+                            if (preferenceDataStore != null) {
+                                preferenceDataStore?.putString(key, newValue)
+                            } else {
+                                sharedPreferences?.edit { putString(key, newValue) }
+                            }
+                            notifyChanged()
                         }
-                        notifyChanged()
+                    } else {
+                        if (callChangeListener(defValue)) {
+                            if (preferenceDataStore != null) {
+                                preferenceDataStore?.putString(key, null)
+                            } else {
+                                sharedPreferences?.edit { remove(key) }
+                            }
+                            notifyChanged()
+                        }
                     }
                 }
                 this.setPositiveButton(android.R.string.ok) { _, _ ->

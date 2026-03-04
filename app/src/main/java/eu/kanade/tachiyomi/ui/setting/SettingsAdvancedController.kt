@@ -3,9 +3,11 @@ package eu.kanade.tachiyomi.ui.setting
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.PowerManager
 import android.provider.Settings
+import android.webkit.WebSettings
 import android.webkit.WebStorage
 import android.webkit.WebView
 import android.widget.Toast
@@ -14,8 +16,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.PreferenceScreen
-import com.google.firebase.crashlytics.ktx.crashlytics
-import com.google.firebase.ktx.Firebase
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.Firebase
+import com.google.firebase.crashlytics.crashlytics
 import eu.kanade.tachiyomi.BuildConfig
 import eu.kanade.tachiyomi.R
 import eu.kanade.tachiyomi.data.cache.ChapterCache
@@ -43,6 +46,8 @@ import eu.kanade.tachiyomi.source.SourceManager
 import eu.kanade.tachiyomi.ui.setting.database.ClearDatabaseController
 import eu.kanade.tachiyomi.ui.setting.debug.DebugController
 import eu.kanade.tachiyomi.util.CrashLogUtil
+import eu.kanade.tachiyomi.util.VpnAppHelper
+import eu.kanade.tachiyomi.util.system.WebViewUtil
 import eu.kanade.tachiyomi.util.system.disableItems
 import eu.kanade.tachiyomi.util.system.isPackageInstalled
 import eu.kanade.tachiyomi.util.system.launchIO
@@ -66,6 +71,7 @@ import uy.kohesive.injekt.Injekt
 import uy.kohesive.injekt.api.get
 import uy.kohesive.injekt.injectLazy
 import java.io.File
+import eu.kanade.tachiyomi.data.preference.PreferenceKeys as Keys
 
 class SettingsAdvancedController : SettingsController() {
     private val network: NetworkHelper by injectLazy()
@@ -321,6 +327,19 @@ class SettingsAdvancedController : SettingsController() {
                     bindTo(preferences.defaultUserAgent())
                     titleRes = R.string.user_agent_string
 
+                    neutralButtonText = R.string.automatic
+                    onNeutralButtonClick = { textView ->
+                        if (WebViewUtil.supportsWebView(context)) {
+                            try {
+                                textView.setText(WebSettings.getDefaultUserAgent(context))
+                            } catch (e: Exception) {
+                                context.toast("Failed to get default User Agent")
+                            }
+                        } else {
+                            context.toast(R.string.webview_is_required)
+                        }
+                    }
+
                     onChange {
                         it as String
                         try {
@@ -332,6 +351,66 @@ class SettingsAdvancedController : SettingsController() {
                         }
                         true
                     }
+                }
+            }
+
+            preferenceCategory {
+                titleRes = R.string.pref_category_auto_vpn
+
+                switchPreference {
+                    key = Keys.autoVpnEnabled
+                    titleRes = R.string.pref_auto_vpn_enabled
+                    summaryRes = R.string.pref_auto_vpn_summary
+                    defaultValue = false
+                }
+
+                preference {
+                    key = Keys.vpnPackageName
+                    titleRes = R.string.pref_select_vpn_app
+
+                    val packageName = preferences.vpnPackageName().get()
+                    summary =
+                        if (packageName.isBlank()) {
+                            "No VPN app selected"
+                        } else {
+                            VpnAppHelper.getVpnAppName(context, packageName)
+                        }
+
+                    onClick {
+                        val fragmentActivity = activity as? AppCompatActivity
+                        fragmentActivity?.let {
+                            VpnSelectorDialog().show(it.supportFragmentManager, "vpn_selector")
+                        }
+                    }
+
+                    visibleIf(preferences.autoVpnEnabled()) { it }
+                }
+
+                intListPreference(activity) {
+                    key = Keys.vpnLatencyThreshold
+                    titleRes = R.string.pref_vpn_latency_threshold
+                    entries =
+                        listOf(
+                            "3 seconds (Aggressive)",
+                            "5 seconds (Recommended)",
+                            "10 seconds (Relaxed)",
+                            "15 seconds (Very Relaxed)",
+                        )
+                    entryValues = listOf(3000, 5000, 10000, 15000)
+                    defaultValue = 5000
+
+                    visibleIf(preferences.autoVpnEnabled()) { it }
+                }
+
+                preference {
+                    titleRes = R.string.pref_test_vpn_app
+                    summaryRes = R.string.pref_test_vpn_app_summary
+
+                    onClick {
+                        testVpnApp()
+                    }
+
+                    visibleIf(preferences.autoVpnEnabled()) { it }
                 }
             }
 
@@ -409,6 +488,36 @@ class SettingsAdvancedController : SettingsController() {
                 }
             }
         }
+
+    private fun testVpnApp() {
+        val activity = activity ?: return
+        val packageName = preferences.vpnPackageName().get()
+        if (packageName.isBlank()) {
+            MaterialAlertDialogBuilder(activity)
+                .setTitle("No VPN Selected")
+                .setMessage("Please select a VPN app first")
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
+            return
+        }
+
+        try {
+            val intent = activity.packageManager.getLaunchIntentForPackage(packageName)
+            if (intent != null) {
+                startActivity(intent)
+            } else {
+                // App not installed, open Play Store
+                val uri = Uri.parse("market://details?id=$packageName")
+                startActivity(Intent(Intent.ACTION_VIEW, uri))
+            }
+        } catch (e: Exception) {
+            MaterialAlertDialogBuilder(activity)
+                .setTitle("Error")
+                .setMessage("Failed to open VPN app: ${e.message}")
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
+        }
+    }
 
     private fun cleanupDownloads(
         removeRead: Boolean,

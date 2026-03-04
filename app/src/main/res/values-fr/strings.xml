@@ -321,8 +321,7 @@
     <string name="obsolete">Obsolète</string>
     <string name="obsolete_extension_message">Cette extension n’est plus disponible.</string>
     <plurals name="extension_updates_available">
-        <item quantity="one">Mise à jour d\'extension disponible</item>
-        <item quantity="many">%d mises à jour des extensions disponibles</item>
+        <item quantity="one">%dMise à jour d\'extension disponible</item>
         <item quantity="other">%d mises à jour des extensions disponibles</item>
     </plurals>
     <string name="reduces_banding_impacts_performance">Réduit les bandes de couleur, mais peut impacter les performances</string>
@@ -902,8 +901,7 @@
     <string name="split_double_pages">Double page divisée</string>
     <string name="split_double_pages_portrait">Double page fractionnée en portrait</string>
     <plurals name="extensions_updated_plural">
-        <item quantity="one">Extension mise à jour</item>
-        <item quantity="many">%d extensions mises à jour</item>
+        <item quantity="one">%dExtension mise à jour</item>
         <item quantity="other">%d extensions mises à jour</item>
     </plurals>
     <string name="extensions_updated">Extensions mises à jour</string>
@@ -1024,8 +1022,7 @@
     <string name="faq_and_guides">FAQ et guides</string>
     <string name="download_ahead">Téléchargement anticipé</string>
     <plurals name="next_unread_chapters">
-        <item quantity="one">Chapitre suivant non lu</item>
-        <item quantity="many">Les %d suivants non lus</item>
+        <item quantity="one">%dChapitre suivant non lu</item>
         <item quantity="other">Les %d suivants non lus</item>
     </plurals>
     <string name="learn_why">Apprendre pourquoi</string>

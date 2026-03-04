@@ -52,6 +52,17 @@ class NetworkHelper(
 //                        )
 //                    }
 
+                        if (preferences.autoVpnEnabled().get()) {
+                            addInterceptor(
+                                UniversalVpnAutoTriggerInterceptor(
+                                    context = context,
+                                    latencyThresholdMs = preferences.vpnLatencyThreshold().get().toLong(),
+                                    vpnPackageName = preferences.vpnPackageName().get(),
+                                    enabled = true,
+                                ),
+                            )
+                        }
+
                         when (preferences.dohProvider()) {
                             PREF_DOH_CLOUDFLARE -> dohCloudflare()
                             PREF_DOH_GOOGLE -> dohGoogle()

@@ -1023,7 +1023,7 @@
     <string name="download_notifier_split_failed">Неможливо розділити завантажене зображення</string>
     <string name="open_in_app">Відкрити в застосунку</string>
     <plurals name="next_unread_chapters">
-        <item quantity="one">Наступний непрочитаний розділ</item>
+        <item quantity="one">Наступний %d непрочитаний розділ</item>
         <item quantity="few">Наступні %d непрочитані розділи</item>
         <item quantity="many">Наступні %d непрочитані розділи</item>
         <item quantity="other">Наступні %d непрочитані розділи</item>

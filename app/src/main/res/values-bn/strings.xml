@@ -286,7 +286,7 @@
     <string name="obsolete">অচল</string>
     <string name="obsolete_extension_message">এই এক্সটেনশন আর উপলব্ধ নয়।</string>
     <plurals name="extension_updates_available">
-        <item quantity="one">এক্সটেনশন আপডেট পাওয়া গেছে</item>
+        <item quantity="one">%dএক্সটেনশন আপডেট পাওয়া গেছে</item>
         <item quantity="other">%dটি এক্সটেনশন আপডেট পাওয়া গেছে</item>
     </plurals>
     <string name="reduces_banding_impacts_performance">ব্যানডিং কমায়, কিন্তু কর্মক্ষমতায় প্রভাভ ফেলে</string>
@@ -771,7 +771,7 @@
     </plurals>
     <string name="extensions_updated">এক্সটেনশন আপডেট করা হয়েছে</string>
     <plurals name="extensions_updated_plural">
-        <item quantity="one">এক্সটেনশন আপডেট করা হয়েছে</item>
+        <item quantity="one">%dএক্সটেনশন আপডেট করা হয়েছে</item>
         <item quantity="other">%d টি এক্সটেনশন আপডেট করা হয়েছে</item>
     </plurals>
     <string name="pages_">পৃষ্ঠা %1$s</string>
@@ -935,7 +935,7 @@
     <string name="length">দৈর্ঘ্য</string>
     <string name="start_year">শুরুর বছর</string>
     <plurals name="next_unread_chapters">
-        <item quantity="one">পরবর্তী অপঠিত অধ্যায়</item>
+        <item quantity="one">%dপরবর্তী অপঠিত অধ্যায়</item>
         <item quantity="other">পরবর্তী %d টি অপঠিত অধ্যায়</item>
     </plurals>
     <string name="auto_download_while_reading">পড়ার সময় সয়ংক্রিয়ভাবে ডাউনলোড</string>

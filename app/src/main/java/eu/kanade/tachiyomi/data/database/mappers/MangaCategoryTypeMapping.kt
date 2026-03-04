@@ -1,5 +1,6 @@
 package eu.kanade.tachiyomi.data.database.mappers
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.database.Cursor
 import com.pushtorefresh.storio.sqlite.SQLiteTypeMapping
@@ -46,6 +47,7 @@ class MangaCategoryPutResolver : DefaultPutResolver<MangaCategory>() {
 }
 
 class MangaCategoryGetResolver : DefaultGetResolver<MangaCategory>() {
+    @SuppressLint("Range")
     override fun mapFromCursor(cursor: Cursor): MangaCategory =
         MangaCategory().apply {
             id = cursor.getLong(cursor.getColumnIndex(COL_ID))

@@ -589,7 +589,7 @@
     <string name="download_ahead">आगे डाउनलोड करें</string>
     <string name="auto_download_while_reading">पढ़ते समय ऑटो डाउनलोड करे</string>
     <plurals name="next_unread_chapters">
-        <item quantity="one">अगला अपठित अध्याय</item>
+        <item quantity="one">%dअगला अपठित अध्याय</item>
         <item quantity="other">अगले %d अपठित अध्याय</item>
     </plurals>
     <string name="on_hold_list">होल्ड लिस्ट में</string>
@@ -750,7 +750,7 @@
     <string name="reset_chapter_question">चैप्टर रीसेट करें?</string>
     <string name="add_x_to_library">%1$s को लाइब्रेरी में जोड़ें?</string>
     <plurals name="extensions_updated_plural">
-        <item quantity="one">एक्सटेंशन अपडेट हो चुका</item>
+        <item quantity="one">%dएक्सटेंशन अपडेट हो चुका</item>
         <item quantity="other">%d एक्सटेंशन अपडेट हो चुके</item>
     </plurals>
 </resources>

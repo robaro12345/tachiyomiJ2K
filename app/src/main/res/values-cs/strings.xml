@@ -300,6 +300,7 @@
     <plurals name="restore_completed_message">
         <item quantity="one">Dokončeno za %1$s s %2$s chybou</item>
         <item quantity="few">Dokončeno za %1$s s %2$s chybami</item>
+        <item quantity="many">Dokončeno za %1$s s %2$s chybami</item>
         <item quantity="other">Dokončeno za %1$s s %2$s chybami</item>
     </plurals>
     <string name="restore_duration">%02d minut, %02d sekund</string>
@@ -333,6 +334,7 @@
     <plurals name="category_plural">
         <item quantity="one">%d kategorie</item>
         <item quantity="few">%d kategorie</item>
+        <item quantity="many">%d kategorie</item>
         <item quantity="other">%d kategorií</item>
     </plurals>
     <string name="manage_category">Spravovat kategorie</string>
@@ -349,16 +351,19 @@
     <plurals name="pages_left">
         <item quantity="one">Zbývá %1$d stránka</item>
         <item quantity="few">Zbývají %1$d stránky</item>
+        <item quantity="many">Zbývají %1$d stránky</item>
         <item quantity="other">Zbývá %1$d stránek</item>
     </plurals>
     <plurals name="chapters_plural">
         <item quantity="one">%1$s kapitola</item>
         <item quantity="few">%1$s kapitoly</item>
+        <item quantity="many">%1$s kapitoly</item>
         <item quantity="other">%1$s kapitol</item>
     </plurals>
     <plurals name="remove_n_chapters">
         <item quantity="one">Odstranit %1$d staženou kapitolu\?</item>
         <item quantity="few">Odstranit %1$d stažené kapitoly\?</item>
+        <item quantity="many">Odstranit %1$d stažené kapitoly\?</item>
         <item quantity="other">Odstranit %1$d stažených kapitol\?</item>
     </plurals>
     <string name="chapter_not_found">Kapitola nenalezena</string>

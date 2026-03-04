@@ -7,7 +7,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import androidx.core.graphics.ColorUtils
@@ -264,8 +263,7 @@ class EditMangaDialog : DialogController {
             binding.root.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.showSoftInput(
             binding.addTagEditText,
-            WindowManager.LayoutParams
-                .SOFT_INPUT_ADJUST_PAN,
+            InputMethodManager.SHOW_IMPLICIT,
         )
     }
 

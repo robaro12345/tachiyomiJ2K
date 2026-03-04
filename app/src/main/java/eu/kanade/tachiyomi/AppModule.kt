@@ -1,7 +1,6 @@
 package eu.kanade.tachiyomi
 
 import android.app.Application
-import androidx.core.content.ContextCompat
 import eu.kanade.tachiyomi.data.cache.ChapterCache
 import eu.kanade.tachiyomi.data.cache.CoverCache
 import eu.kanade.tachiyomi.data.database.DatabaseHelper
@@ -19,6 +18,8 @@ import eu.kanade.tachiyomi.network.NetworkHelper
 import eu.kanade.tachiyomi.source.SourceManager
 import eu.kanade.tachiyomi.util.chapter.ChapterFilter
 import eu.kanade.tachiyomi.util.manga.MangaShortcutManager
+import eu.kanade.tachiyomi.util.system.launchIO
+import kotlinx.coroutines.GlobalScope
 import kotlinx.serialization.json.Json
 import uy.kohesive.injekt.api.InjektModule
 import uy.kohesive.injekt.api.InjektRegistrar
@@ -73,8 +74,7 @@ class AppModule(
         addSingletonFactory { TrustExtension(get()) }
 
         // Asynchronously init expensive components for a faster cold start
-
-        ContextCompat.getMainExecutor(app).execute {
+        GlobalScope.launchIO {
             get<PreferencesHelper>()
 
             get<NetworkHelper>()

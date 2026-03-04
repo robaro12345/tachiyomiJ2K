@@ -1,5 +1,6 @@
 package eu.kanade.tachiyomi.ui.source.globalsearch
 
+import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.core.view.isVisible
@@ -17,6 +18,7 @@ import eu.kanade.tachiyomi.databinding.SourceGlobalSearchControllerCardItemBindi
 import eu.kanade.tachiyomi.ui.base.holder.BaseFlexibleViewHolder
 import eu.kanade.tachiyomi.util.system.isLTR
 
+@SuppressLint("RestrictedApi")
 class GlobalSearchMangaHolder(
     view: View,
     adapter: GlobalSearchCardAdapter,
@@ -54,8 +56,8 @@ class GlobalSearchMangaHolder(
         binding.maskableLayout.setOnMaskChangedListener { maskRect ->
             // Any custom motion to run when mask size changes
             binding.title.translationX = maskRect.left
-            binding.title.setAlpha(lerp(1F, 0F, 0F, 80F, maskRect.left))
-            binding.favoriteButton.setAlpha(binding.title.alpha)
+            binding.title.alpha = lerp(1F, 0F, 0F, 80F, maskRect.left)
+            binding.favoriteButton.alpha = binding.title.alpha
         }
     }
 

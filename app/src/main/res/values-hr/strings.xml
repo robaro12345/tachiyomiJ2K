@@ -978,7 +978,7 @@
     <string name="tap_to_learn_more">Dodirni za daljnje informacije</string>
     <string name="warning_enroll_into_beta">Beta izdanja mogu biti nestabilna i mogu zahtijevati brisanje podataka aplikacije.</string>
     <plurals name="next_unread_chapters">
-        <item quantity="one">Sljedeće nepročitano poglavlje</item>
+        <item quantity="one">%dSljedeće nepročitano poglavlje</item>
         <item quantity="few">Sljedeća %d nepročitana poglavlja</item>
         <item quantity="other">Sljedećih %d nepročitanih poglavlja</item>
     </plurals>
